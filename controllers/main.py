@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*- 
 from odoo import http
-
+from odoo.addons.website_sale.controllers.main import WebsiteSale
 class Academy(http.Controller):
 
     @http.route('/academy/academy', auth="public", website=True)
@@ -23,3 +23,22 @@ class Academy(http.Controller):
         website=True)
     def obj_teacher(self, teacher):
         return http.request.render('academy.biography', {'person': teacher})
+
+class WebsiteSaleInh(WebsiteSale):
+
+    @http.route()
+    def shop(self, page=0, category=None, search='', ppg=False, **post):
+        print("Inherits correctly")
+        res = super(WebsiteSaleInh, self).shop(page=page,
+            category=category,
+            search=search,
+            ppg=ppg,
+            **post)
+
+        # import ipdb;ipdb.set_trace()
+        res.qcontext['products'] = res.qcontext['products'].sorted(
+            key=lambda product: product.name)
+        res.qcontext['categories'] = res.qcontext['categories'].sorted(
+            key=lambda category: category.name)
+        res.qcontext['search'] = 'ipad'
+        return res

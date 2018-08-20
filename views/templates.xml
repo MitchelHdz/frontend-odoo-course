@@ -32,4 +32,43 @@
 			<div class="oe_structure"/>
 		</t>
 	</template>
+	<template id="products_item" inherit_id="website_sale.products_item">
+		<xpath expr="//h5" position="after">
+			<p t-esc="product.id"></p>
+		</xpath>
+		<xpath expr="//h5" position="attributes">
+			<attribute name="class" add="col-md-12" separator=" "/>
+		</xpath>
+		<xpath expr="//h5" position="before">
+			<t t-foreach="product.public_categ_ids" t-as="category">
+				<p t-esc="category.name"></p>
+			</t>
+		</xpath>
+	</template>
+	<!-- <template id="layout" inherit_id="website.layout">
+		<xpath expr="//t[@t-set='head_website']" position="inside">
+			<t t-set="global_categs" t-value="env['product.public.category'].search([('parent_id', '=', False)])"/>
+		</xpath>
+	</template> -->
+	<template id="frontend_layout" inherit_id="portal.frontend_layout">
+		<xpath expr="//div[hasclass('navbar-header')]" position="after">
+			<t t-set="global_categs" t-value="env['product.public.category'].search([('parent_id', '=', False)])"/>
+			<ul class="nav navbar-nav navbar-left" id="top_menu">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <b>
+                            <p>Categories</p>
+                        </b>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                    	<t t-foreach="global_categs" t-as="global_category">
+							<li t-attf-id="{{ slug(global_category) }}">
+								<a t-attf-href="/shop/category/{{ slug(global_category) }}" t-esc="global_category.name"></a>
+							</li>
+						</t>
+                    </ul>
+                </li>
+            </ul>
+		</xpath>
+	</template>
 </odoo>
