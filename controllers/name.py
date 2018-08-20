@@ -5,4 +5,10 @@ class Academy(http.Controller):
 
     @http.route('/academy/academy', auth="public")
     def index(self, **kw):
-        return "Hello World"
+        return http.request.render(
+            'academy.index',
+            {"teachers": [
+                'Jessie Pinkman',
+                'John Snow',
+                'Walter White',
+            ]})
