@@ -21,11 +21,12 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['website'],
+    'depends': ['website_sale'],
 
     # always loaded
     'data': [
         'views/templates.xml',
+        'views/views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -7,13 +7,29 @@
 				<div class="container">
 					<h1><t t-esc="user_id.name"/></h1>
 					<t t-foreach="teachers" t-as="teacher">
-						<p>
-							<t t-esc="teacher.id"/>
+						<a t-attf-href="/academy/{{ slug(teacher) }}">
 							<t t-esc="teacher.name"/>
-						</p>
+						</a>
 					</t>	
 				</div>
 			</div>
+		</t>
+	</template>
+	<template id="biography">
+		<t t-call="website.layout">
+			<t t-set="title">Academy</t>
+			<div class="oe_structure"/>
+			<div class="oe_structure">
+				<div class="container">
+					<div>
+						<h2 t-field="person.name"/>
+						<p>Last modified: <i t-field="person.write_date" t-options="{'widget': 'relative'}"/></p>
+					</div>
+					<div t-field="person.biography">
+					</div>
+				</div>
+			</div>
+			<div class="oe_structure"/>
 		</t>
 	</template>
 </odoo>
