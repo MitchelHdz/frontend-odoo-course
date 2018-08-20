@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="snow" model="academy.teachers">
+        <field name="name">John Snow</field>
+    </record>
+    <record id="walter" model="academy.teachers">
+        <field name="name">Walter White</field>
+    </record>
+    <record id="gus" model="academy.teachers">
+        <field name="name">Gus Fring</field>
+    </record>
+</odoo>

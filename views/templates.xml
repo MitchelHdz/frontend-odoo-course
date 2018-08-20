@@ -1,48 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-	<template id="other-template">
-		<div>
-			<h1>Hello from another template</h1>
-			<t t-raw="0"/>
-		</div>
-	</template>
 	<template id="index">
-		<title>Academy</title>
-		<!-- <t t-foreach="teachers" t-as="teacher">
-			<p t-esc="teacher"></p>
-		</t> -->
-<!-- 		<div t-if="1 == 1">
-			<p>Test</p>
-		</div> -->
-<!-- 		<t t-foreach="[1, 2, 3]" t-as="i">
-			<p><t t-esc="i"/></p>
-			<p>Value</p>
-			<t t-esc="i_value"/>
-			<p>Index</p>
-			<t t-esc="i_index"/>
-			<p>Size</p>
-			<t t-esc="i_size"/>
-			<p>First</p>
-			<t t-esc="i_first"/>
-			<p>Last</p>
-			<t t-esc="i_last"/>
-			<p>Parity</p>
-			<t t-esc="i_parity"/>
-			<p>Even</p>
-			<t t-esc="i_even"/>
-			<p>Odd</p>
-			<t t-esc="i_odd"/>
-		</t> -->
-<!-- 		<div t-att-a="42"></div>
-		<t t-foreach="[1, 2, 3]" t-as="item">
-			<li t-attf-class="row {{ item }}"><t t-esc="item"/></li>
-		</t>
-		<div t-att="{'a':1, 'b':2}"/>
-		<div t-att="['a','b']"/> -->
-		<!-- <t t-set="foo" t-value="1 + 2" /> -->
-		<!-- <t t-esc="foo"/> -->
-		<t t-call="academy.other-template">
-			<p>Algo</p>
+		<t t-call="website.layout">
+			<t t-set="title">Academy</t>
+			<div class="oe_structure">
+				<div class="container">
+					<h1><t t-esc="user_id.name"/></h1>
+					<t t-foreach="teachers" t-as="teacher">
+						<p>
+							<t t-esc="teacher.id"/>
+							<t t-esc="teacher.name"/>
+						</p>
+					</t>	
+				</div>
+			</div>
 		</t>
 	</template>
 </odoo>
