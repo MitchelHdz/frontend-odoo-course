@@ -24,6 +24,15 @@ class Academy(http.Controller):
     def obj_teacher(self, teacher):
         return http.request.render('academy.biography', {'person': teacher})
 
+    @http.route('/academy/search_teacher', type="json", auth="public", website=True)
+    def search_teacher(self, **args):
+        print(args)
+        teacher_obj = http.request.env['academy.teachers']
+        teacher = teacher_obj.search_read(
+            [('id', '=', args.get('teacher_id', False))],
+            fields=['biography'])
+        return teacher
+
 class WebsiteSaleInh(WebsiteSale):
 
     @http.route()
