@@ -25,6 +25,7 @@
 
     # always loaded
     'data': [
+        'data/website_academy_data.xml',
         'views/assets.xml',
         'views/templates.xml',
         'views/views.xml',

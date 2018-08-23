@@ -24,6 +24,10 @@
 						<label for="biography"></label>
 						<field name="biography" widget="html"/>
 					</div>
+					<div>
+						<label for="birth_date"></label>
+						<field name="birth_date" options="{'datepicker': {'daysOfWeekDisabled': [0.6], 'minDate': 'now'}}"/>
+					</div>
 				</sheet>	
 			</form>
 		</field>
@@ -36,6 +40,7 @@
 			<tree editable="top">
 				<field name="name"/>
 				<field name="color" widget="color"/>
+				<field name="birth_date" options="{'datepicker': {'daysOfWeekDisabled': [0.6], 'minDate': 'now'}}"/>
 			</tree>
 		</field>
 	</record>
