@@ -6,7 +6,7 @@ import odoo.tests
 @odoo.tests.common.post_install(True)
 class TestUiTeachers(odoo.tests.HttpCase):
 
-    def test_01-admin_teachers_tour(self):
+    def test_01_admin_teachers_tour(self):
 
         self.phantom_js(
             '/',
