@@ -10,10 +10,18 @@
 		<field name="arch" type="xml">
 			<form>
 				<sheet>
-					<label for="name"></label>
-					<field name="name"/>
-					<label for="biography"></label>
-					<field name="biography" widget="html"/>
+					<div>
+						<label for="name"></label>
+						<field name="name"/>
+					</div>
+					<div>
+						<label for="color"></label>
+						<field name="color" widget="color"/>
+					</div>
+					<div>
+						<label for="biography"></label>
+						<field name="biography" widget="html"/>
+					</div>
 				</sheet>	
 			</form>
 		</field>

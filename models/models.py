@@ -1,7 +1,9 @@
-from odoo import api, models, fields
+from odoo import api, fields, models
+
 
 class Teachers(models.Model):
     _name = 'academy.teachers'
 
     name = fields.Char()
     biography = fields.Html()
+    color = fields.Char()
